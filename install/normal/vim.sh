@@ -3,23 +3,19 @@
 safe_remove ~/.vim
 safe_remove ~/.vimrc
 
-if [ -d "${BASEDIR}/home/.vim" ]; then
-    rm -rf ${BASEDIR}/home/.vim
-fi
-mkdir -p ${BASEDIR}/home/.vim/autoload ${BASEDIR}/home/.vim/backup ${BASEDIR}/home/.vim/colors ${BASEDIR}/home/.vim/plugged ${BASEDIR}/home/.vim/bundle
+mkdir -p ${HOME}/.vim/autoload ${HOME}/.vim/backup ${HOME}/.vim/colors ${HOME}/.vim/plugged ${HOME}/.vim/bundle
 
-ln -s ${BASEDIR}/home/.vimrc ~/.vimrc
-ln -s ${BASEDIR}/home/.vim ~/.vim
+ln -s ${BASEDIR}/home/.vimrc ${HOME}/.vimrc
 
 # install Vundle
-vundle_target_dir=${BASEDIR}/home/.vim/bundle/Vundle.vim
+vundle_target_dir=${HOME}/.vim/bundle/Vundle.vim
 git clone "${GITHUB_PROXY}https://github.com/VundleVim/Vundle.vim.git" $vundle_target_dir
 
 # install catppuccin colors
 git clone ${GITHUB_PROXY}https://github.com/catppuccin/vim.git ${INSTALL_TMP}/catppuccin_vim
-cp ${INSTALL_TMP}/catppuccin_vim/colors/* ${BASEDIR}/home/.vim/colors/.
+cp ${INSTALL_TMP}/catppuccin_vim/colors/* ${HOME}/.vim/colors/.
 
 # init plugins
 vim +PluginInstall +qall
 
-cp ${INSTALL_TMP}/catppuccin_vim/autoload/airline/themes/* ${BASEDIR}/home/.vim/bundle/vim-airline-themes/autoload/airline/themes/.
+cp ${INSTALL_TMP}/catppuccin_vim/autoload/airline/themes/* ${HOME}/.vim/bundle/vim-airline-themes/autoload/airline/themes/.
