@@ -61,6 +61,7 @@ filetype plugin indent on    " required
 " BASIC---{{{
 set termguicolors " make catppuccin better
 set relativenumber " display line number
+set number " absolute number for current line
 set cursorline " highlight current line
 set ruler
 set nocompatible " Disable compatibility with vi which can cause unexpected issues.
